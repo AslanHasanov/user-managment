@@ -24,6 +24,16 @@ namespace UserManagment.DataBase.Models
             Email = email;
             Password = password;
             _registerTime = DateTime.Now;
+
+        }
+        public string GetUserInfo()
+        {
+            return $"Name : {FirstName} Last name :  {LastName}  registred time : {_registerTime}";
+        }
+
+        public string GetAllForAdmin()
+        {
+            return $" {Id}  Name : {FirstName} Last name :  {LastName}, Email : {Email}, registred time : {_registerTime}";
         }
     }
 }
