@@ -22,5 +22,23 @@ namespace UserManagment.ApplicationLogic
 
             return firstName;
         }
+
+        public static string GetLastName()
+        {
+            Console.Write("Please enter your last name : ");
+            string lastName = Console.ReadLine();
+
+            while (!UserValidation.IsValidLastName(lastName))
+            {
+                Console.Write("Please enter correct last name : ");
+                lastName = Console.ReadLine();
+            }
+
+            return lastName;
+        }
+
     }
+
+
+
 }
