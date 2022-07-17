@@ -37,6 +37,20 @@ namespace UserManagment.ApplicationLogic
             return lastName;
         }
 
+        public static string GetEmail()
+        {
+            Console.Write("Please enter your e-mail : ");
+            string email = Console.ReadLine();
+
+            while (!UserValidation.IsValidEmail(email))
+            {
+                Console.Write("Please enter correct e-mail : ");
+                email = Console.ReadLine();
+            }
+
+            return email;
+        }
+
     }
 
 
