@@ -51,6 +51,28 @@ namespace UserManagment.ApplicationLogic
             return email;
         }
 
+        public static string GetPassword()
+        {
+            Console.Write("Please enter your password : ");
+            string password = Console.ReadLine();
+
+            while (!UserValidation.IsValidPassword(password))
+            {
+                Console.Write("Please enter correct password : ");
+                password = Console.ReadLine();
+            }
+            Console.Write("Please confirm password : ");
+            string confirmPassword = Console.ReadLine();
+
+
+            while (!UserValidation.IsValidConfirmPassword(password, confirmPassword))
+            {
+                Console.Write("Please confirm correct password : ");
+            }
+
+            return password;
+        }
+
     }
 
 
