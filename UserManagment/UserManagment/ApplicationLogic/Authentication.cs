@@ -31,6 +31,44 @@ namespace UserManagment.ApplicationLogic
             }
 
         }
+
+        public static void Login()
+        {
+            Console.Write("Please enter your e-mail : ");
+            string email = Console.ReadLine();
+
+            Console.Write("Please enter your password : ");
+            string password = Console.ReadLine();
+
+
+            if (email == "admin@gmail.com" && password == "123321")
+            {
+                Console.WriteLine("/show-users");
+                Console.WriteLine("Enter command :");
+                string command = Console.ReadLine();
+                if (command == "/show-users")
+                {
+                    foreach (User user in UserRepo.Users)
+                    {
+                        Console.WriteLine(user.GetAllForAdmin());
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"{command} not found");
+                }
+            }
+            else if (UserRepo.IsUserExistByEmailAndPassword(email, password))
+            {
+                User user = UserRepo.GetUserByEmail(email);
+                Console.WriteLine($"Welcome to your account :  {user.GetUserInfo()}");
+            }
+            else
+            {
+                Console.WriteLine("404 not found");
+            }
+        }
+
         public static string GetFirstName()
         {
             Console.Write("Please enter your name : ");
