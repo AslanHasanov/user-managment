@@ -128,6 +128,7 @@ namespace UserManagment.ApplicationLogic
             while (!UserValidation.IsValidConfirmPassword(password, confirmPassword))
             {
                 Console.Write("Please confirm correct password : ");
+                confirmPassword = Console.ReadLine();
             }
 
             return password;
