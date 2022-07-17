@@ -14,5 +14,12 @@ namespace UserManagment.DataBase.Repo
             new User("Admin","Super","admin@gmail.com","123321")
 
         };
+
+        public static User AddUser(string firstName, string lastName, string email, string password)
+        {
+            User user = new User(firstName, lastName, email, password);
+            Users.Add(user);
+            return user;
+        }
     }
 }
