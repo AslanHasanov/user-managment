@@ -32,5 +32,27 @@ namespace UserManagment.ApplicationLogic.Validations
 
             return false;
         }
+
+        public static bool IsConfirmPasswordCorrect(string password, string confirmPassword)
+        {
+            if (password == confirmPassword)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public static bool IsPasswordCorrect(string password)
+        {
+            string pattern = @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$";
+            Regex regex = new Regex(pattern);
+            if (regex.IsMatch(password))
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }
