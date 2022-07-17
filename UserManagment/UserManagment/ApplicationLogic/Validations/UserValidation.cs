@@ -63,5 +63,29 @@ namespace UserManagment.ApplicationLogic.Validations
 
             return false;
         }
+
+        public static bool IsValidPassword(string password)
+        {
+            if (Validation.IsPasswordCorrect(password))
+            {
+                return true;
+            }
+            Console.WriteLine("Password Input must contain at least one uppercase letter," +
+                " one lowercase letter," +
+                " and a number and cannot be less than 8 in length");
+
+            return false;
+        }
+
+        public static bool IsValidConfirmPassword(string password, string confirmPassword)
+        {
+            if (Validation.IsConfirmPasswordCorrect(password, confirmPassword))
+            {
+                return true;
+            }
+            Console.WriteLine("Confirm password is not match");
+
+            return false;
+        }
     }
 }
