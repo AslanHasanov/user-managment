@@ -4,11 +4,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UserManagment.ApplicationLogic.Validations;
+using UserManagment.DataBase.Models;
+using UserManagment.DataBase.Repo;
 
 namespace UserManagment.ApplicationLogic
 {
     internal class Authentication
     {
+        public static void Register()
+        {
+            string firstName = GetFirstName();
+
+            string lastName = GetLastName();
+
+            string email = GetEmail();
+
+            string password = GetPassword();
+
+            Console.WriteLine();
+
+            if (!UserValidation.IsUserExist(email))
+            {
+                User user = UserRepo.AddUser(firstName, lastName, email, password);
+                Console.WriteLine("You successfully registered, now you can login with your new account!");
+                Console.WriteLine($"User's details: {user.GetUserInfo()} ");
+            }
+
+        }
         public static string GetFirstName()
         {
             Console.Write("Please enter your name : ");
